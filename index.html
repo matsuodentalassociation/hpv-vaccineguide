@@ -1,467 +1,1153 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>知って選ぶ、HPVワクチンのこと｜将来の自分と大切な人を守るために</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html {
-      scroll-behavior: smooth;
-      -webkit-tap-highlight-color: transparent;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, "Segoe UI", Roboto, sans-serif;
-    }
-
-    /* details/summary アコーディオン */
-    details summary::-webkit-details-marker {
-      display: none;
-    }
-    details[open] summary .chevron-icon {
-      transform: rotate(180deg);
-    }
-
-    /* スムーズジャンプ時のハイライト効果 */
-    .highlight-target {
-      animation: pulseHighlight 1.6s ease-out;
-    }
-    @keyframes pulseHighlight {
-      0% { box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.4); border-color: #38bdf8; }
-      100% { box-shadow: none; border-color: #f1f5f9; }
-    }
-
-    @media print {
-      header nav, .no-print, button {
-        display: none !important;
-      }
-      body {
-        background: #ffffff !important;
-      }
-      details {
-        display: block !important;
-      }
-      details > * {
-        display: block !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F7FAF9">
+<meta name="hpv-lp-app" content="hpv-vaccineguide">
+<meta name="hpv-lp-version" content="5">
+<title>あなたの将来のために。｜HPVガイド V5</title>
+<style id="lp-style">
+:root{
+  --bg:#F7FAF9;--paper:#FFFFFF;--navy:#142740;
+  --text:#263C50;--muted:#526777;--teal:#08796F;
+  --teal-dark:#065B54;--mint:#E3F5EF;--cyan:#00D5EA;
+  --line:#D4E3DF;--warm:#9B4832;--warm-bg:#FFF2EC;
+  --shadow:0 8px 26px #17392f09
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--navy)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans",Meiryo,sans-serif}
+button,textarea{font:inherit}
+button{cursor:pointer}
+button,a{-webkit-tap-highlight-color:transparent}
+a{color:var(--teal-dark);text-underline-offset:4px}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+.app{height:100vh;height:100dvh;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none}
+.app::-webkit-scrollbar,.rail::-webkit-scrollbar{display:none}
+.chapter{
+  height:100vh;height:100dvh;scroll-snap-align:start;
+  scroll-snap-stop:always;display:flex;flex-direction:column;
+  overflow:hidden;position:relative;
+  background:radial-gradient(ellipse at 95% 30%,#E7F6EF,transparent 65%),var(--bg)
+}
+.chapter.risk{background:radial-gradient(ellipse at 95% 30%,#FFF0E7,transparent 65%),var(--bg)}
+.top{
+  flex-shrink:0;display:flex;align-items:center;justify-content:space-between;
+  gap:10px;min-height:58px;padding:12px 20px;
+  padding-top:max(12px,env(safe-area-inset-top));
+  border-bottom:1px solid var(--line)
+}
+.brand{font-size:10px;font-weight:850;letter-spacing:.12em;white-space:nowrap}
+.brand b{color:var(--teal)}
+.edition{font-size:10px;line-height:1.5;color:var(--muted);border:1px solid var(--line);border-radius:24px;padding:5px 9px;background:#ffffff90}
+.rail{
+  display:flex;flex:1;min-height:0;gap:10px;padding:12px 12px 8px;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:12px;
+  scrollbar-width:none;overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch
+}
+.slide{
+  flex:0 0 calc(100% - 16px);min-width:0;scroll-snap-align:start;
+  display:flex;flex-direction:column;overflow:hidden;position:relative;
+  border:1px solid var(--line);border-radius:25px;
+  background:var(--paper);box-shadow:var(--shadow)
+}
+.slide::before{
+  content:"";position:absolute;top:0;left:26px;width:62px;height:3px;
+  border-radius:0 0 4px 4px;background:var(--teal)
+}
+.slide.detail{background:#F0F7F4}
+.slide-inner{
+  flex:1;min-height:0;overflow-y:auto;padding:24px 22px 20px;
+  scrollbar-width:thin;scrollbar-color:#A1BEB5 transparent;
+  overflow-wrap:anywhere
+}
+.tag{
+  font-size:10px;line-height:1.5;letter-spacing:.1em;font-weight:850;
+  color:var(--teal);margin-bottom:15px;display:flex;align-items:center;gap:8px
+}
+.tag::before{content:"";width:6px;height:6px;background:var(--teal);border-radius:50%;flex-shrink:0}
+.headline{font-size:clamp(28px,8.2vw,40px);line-height:1.38;letter-spacing:-.055em;font-weight:900}
+.accent{color:var(--teal)}
+.warm{color:var(--warm)}
+.subline{font-size:15px;font-weight:750;line-height:1.8;margin-top:18px}
+.body{font-size:13px;color:var(--muted);line-height:1.85;margin-top:12px}
+.caption{font-size:11px;color:var(--muted);line-height:1.8;margin-top:10px}
+.promise{font-size:12px;color:var(--text);line-height:1.85;border-left:3px solid var(--teal);padding:2px 0 2px 12px;margin-top:16px}
+.visual{max-width:340px;margin:20px auto 12px}
+svg{display:block;width:100%;height:auto}
+.hint{
+  flex-shrink:0;display:flex;align-items:center;justify-content:space-between;
+  gap:8px;padding:8px 15px;border-top:1px solid var(--line);
+  font-size:11px;line-height:1.6;color:var(--teal-dark);background:#FBFDFC
+}
+.hint button{border:0;background:transparent;color:var(--teal-dark);font-size:11px;min-height:36px;padding:5px 8px;font-weight:800}
+.navigation{flex-shrink:0;padding:3px 20px max(12px,env(safe-area-inset-bottom))}
+.horizontal{display:flex;align-items:center;justify-content:space-between;min-height:40px}
+.horizontal>button{border:1px solid var(--line);background:white;color:var(--teal);border-radius:10px;width:38px;min-height:34px;font-size:19px}
+.dots{display:flex;gap:2px}
+.dots button{border:0;background:transparent;width:30px;height:36px;display:grid;place-items:center;padding:0}
+.dots button::after{content:"";width:7px;height:7px;border-radius:50%;background:#A8BDB5}
+.dots button[aria-current=true]::after{width:20px;border-radius:5px;background:var(--teal)}
+.vertical{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:3px}
+.vertical button{border:1px solid var(--line);border-radius:11px;min-height:42px;padding:9px 12px;background:white;color:var(--navy);font-size:11px;font-weight:750}
+.vertical .next{background:var(--teal);border-color:var(--teal);color:white}
+.count{font-size:10px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+button:disabled{opacity:.35;cursor:default}
+.detail h2{font-size:26px;line-height:1.45;letter-spacing:-.04em;margin-bottom:18px}
+.info{margin-top:14px;padding:16px;border:1px solid var(--line);border-radius:16px;background:white}
+.info h3{font-size:15px;line-height:1.6;margin-bottom:7px}
+.info p{font-size:13px;line-height:1.9;color:var(--muted)}
+.info.positive{background:var(--mint);border-color:#B7DCD0}
+.info.positive h3{color:var(--teal-dark)}
+.info.caution{background:var(--warm-bg);border-color:#E7C6B9}
+.info.caution h3{color:var(--warm)}
+.source{font-size:11px;line-height:1.85;color:var(--muted);margin-top:18px}
+.source a{display:inline-block;margin-top:5px}
+.choices,.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+button{position:relative;overflow:hidden;transition:transform .12s,background .15s,border-color .15s,box-shadow .15s}
+button:not(:disabled):active{transform:translateY(2px) scale(.985);box-shadow:inset 0 2px 5px #14274017}
+.choice,.action{
+  border:1px solid #B7CDC4;border-radius:13px;background:white;color:var(--navy);
+  padding:12px 13px;min-height:46px;line-height:1.6;font-size:12px;font-weight:750
+}
+.action.primary{background:var(--teal);border-color:var(--teal);color:white}
+.choice[aria-pressed=true]{
+  background:var(--mint);border:2px solid var(--teal-dark);
+  padding:11px 12px;color:var(--teal-dark);box-shadow:0 2px 7px #08796f12
+}
+.choice[aria-pressed=true]::before{content:"✓";font-weight:900;margin-right:7px}
+.ripple{
+  position:absolute;border-radius:50%;background:#00D5EA55;
+  pointer-events:none;animation:ripple .65s ease-out forwards
+}
+@keyframes ripple{from{transform:scale(0);opacity:.95}to{transform:scale(1);opacity:0}}
+.response{
+  border-radius:14px;background:var(--mint);border:1px solid #BEDDD1;
+  padding:13px;margin-top:14px;font-size:13px;line-height:1.85;color:var(--teal-dark)
+}
+.flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;margin:24px 0}
+.flow span{padding:14px 12px;border:1px solid #BAD8CD;border-radius:13px;background:var(--mint);font-size:13px;font-weight:750;text-align:center}
+.flow b{color:var(--teal)}
+.types{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:22px 0}
+.types span{background:var(--mint);color:var(--teal-dark);border:1px solid #BEDDD1;border-radius:14px;padding:13px;text-align:center;font-size:23px;font-weight:850}
+.metric{background:var(--mint);border:1px solid #BEDDD1;border-radius:20px;padding:20px;margin-top:20px}
+.big-type{font-size:63px;line-height:1.2;font-weight:900;color:var(--teal-dark);margin-top:10px}
+.big-type small{font-size:25px}
+details{border:1px solid var(--line);border-radius:14px;background:white;margin-top:12px;overflow:hidden}
+summary{cursor:pointer;position:relative;padding:15px;font-size:14px;font-weight:800;line-height:1.7;color:var(--navy);transition:background .15s;min-height:48px}
+summary:active{background:var(--mint)}
+details[open]{border-color:var(--teal)}
+details[open] summary{background:var(--mint);color:var(--teal-dark)}
+details p{font-size:13px;line-height:1.85;color:var(--muted);padding:0 15px 15px;margin-top:12px}
+label{display:block;font-size:13px;line-height:1.8;margin-top:16px}
+textarea{width:100%;min-height:180px;resize:vertical;border:1px solid #A5C5B7;border-radius:13px;background:white;color:var(--navy);padding:13px;font-size:13px;line-height:1.85;margin-top:10px}
+.share-area{border-top:1px solid var(--line);padding-top:22px;margin-top:25px}
+.share-area h3{font-size:21px;line-height:1.5}
+.qr{width:216px;min-height:216px;padding:12px;background:white;margin:18px auto;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center}
+.qr svg{width:190px;height:190px}
+.qr p{font-size:12px;line-height:1.8;text-align:center;color:var(--muted)}
+.url{font-size:11px;line-height:1.85;word-break:break-all}
+.toast{
+  position:fixed;bottom:max(15px,env(safe-area-inset-bottom));left:50%;
+  transform:translateX(-50%);width:390px;max-width:calc(100% - 28px);
+  background:white;border:1px solid #9CCDBB;border-radius:16px;
+  padding:15px;box-shadow:0 8px 35px #14274025;
+  font-size:13px;line-height:1.7;z-index:20
+}
+.toast[hidden]{display:none}
+.toast .action{margin:10px 8px 0 0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+@media(min-width:600px){
+  body{display:flex;justify-content:center;background:#E9F1ED}
+  .app{width:430px;border-left:1px solid var(--line);border-right:1px solid var(--line);box-shadow:0 0 60px #1427400c}
+  .headline{font-size:35px}
+}
+@media(max-height:730px){
+  .top{min-height:47px}
+  .slide-inner{padding-top:19px}
+  .headline{font-size:28px}
+  .visual{max-width:260px;margin-top:14px;margin-bottom:8px}
+  .subline{font-size:13px;margin-top:12px}
+  .body{font-size:12px;margin-top:9px}
+  .tag{margin-bottom:11px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+  button:not(:disabled):active{transform:none}
+}
+</style>
 </head>
-<body class="bg-slate-100 text-slate-700 min-h-screen antialiased flex flex-col items-center selection:bg-rose-100 selection:text-rose-800">
+<body>
+<main class="app" id="app" aria-label="HPVを知るスマホガイド、全12テーマ"></main>
+<noscript>
+  <p>このガイドはJavaScriptを使用します。
+  <a href="https://www.mhlw.go.jp/bunya/kenkou/kekkaku-kansenshou28/index.html">厚生労働省の公式情報を見る</a></p>
+</noscript>
+<div class="sr" id="status" role="status" aria-live="polite"></div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
-  <div class="w-full max-w-lg bg-white min-h-screen border-x border-slate-200/80 flex flex-col justify-between shadow-xl">
+<script id="lp-code">
+(function(){
+'use strict';
+const CONFIG={
+  owner:'matsuodentalassociation',
+  repo:'hpv-vaccineguide',
+  branch:'main',
+  path:'index.html',
+  version:5,
+  build:'V5-20261008-01',
+  url:'https://matsuodentalassociation.github.io/hpv-vaccineguide/'
+};
 
-    <!-- ==========================================
-         1. FV / 導入セクション
-    ========================================== -->
-    <section class="p-6 sm:p-8 pt-10 text-center relative overflow-hidden bg-gradient-to-b from-sky-50/80 via-rose-50/30 to-white border-b border-slate-100">
-      
-      <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white border border-sky-200 text-sky-800 text-xs font-semibold shadow-sm mb-3.5">
-        <span class="text-sky-500">🌸</span> 講演会 持ち帰り・復習用ガイド
+/*
+ * main / index.html はGitHub Pagesの配信元に合わせる。
+ * gh-pagesやdocsフォルダを使用する場合はbranch/pathを変更。
+ * このスクリプトは関数スコープ内なので最新版適用時も
+ * constの再宣言によるエラーを避けられる。
+ */
+const signature=doc=>[
+  doc.querySelector('#lp-style')?.textContent||'',
+  doc.querySelector('#lp-code')?.textContent||'',
+  doc.querySelector('title')?.textContent||''
+].join('\n');
+const initialSignature=signature(document);
+
+const OFFICIAL='https://www.mhlw.go.jp/bunya/kenkou/kekkaku-kansenshou28/index.html';
+const QA='https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou/hpv_qa.html';
+const CATCHUP='https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou/hpv_catch-up-vaccination.html';
+
+const info=(title,text,kind='')=>
+  `<div class="info ${kind}"><h3>${title}</h3><p>${text}</p></div>`;
+const source=(url=QA,text='厚生労働省の公式情報')=>
+  `<p class="source"><a href="${url}" target="_blank" rel="noopener noreferrer">${text} ↗</a></p>`;
+const flow=items=>'<div class="flow">'+items.map(x=>`<span>${x}</span>`).join('<b aria-hidden="true">→</b>')+'</div>';
+const detail=(title,content)=>({title,content});
+
+const community=`
+<div class="visual">
+  <svg viewBox="0 0 340 175" role="img" aria-label="自分と周囲をつなぐ予防の模式図">
+    <ellipse cx="170" cy="80" rx="125" ry="60" fill="#E3F5EF" stroke="#BEDDD1"/>
+    <path class="routes" d="M54 83L170 76L285 58M170 76L282 113"
+      fill="none" stroke="#08796F" stroke-width="2" opacity=".6"/>
+    <g fill="#08796F">
+      <circle cx="170" cy="57" r="12"/>
+      <path d="M146 102Q146 77 170 77Q194 77 194 102"/>
+    </g>
+    <g class="others" fill="#697F91">
+      <circle cx="54" cy="65" r="8"/>
+      <path d="M39 97Q39 78 54 78Q69 78 69 97"/>
+      <circle cx="285" cy="40" r="8"/>
+      <path d="M270 72Q270 53 285 53Q300 53 300 72"/>
+      <circle cx="282" cy="94" r="8"/>
+      <path d="M267 126Q267 107 282 107Q297 107 297 126"/>
+    </g>
+    <text x="170" y="155" text-anchor="middle" fill="#065B54" font-size="11">YOU + COMMUNITY</text>
+  </svg>
+</div>`;
+
+const virus=`
+<div class="visual">
+  <svg viewBox="0 0 340 220" role="img" aria-label="HPVには200種類以上の型がある">
+    <circle cx="170" cy="102" r="83" fill="#F0F8F4" stroke="#BEDDD1"/>
+    <circle cx="170" cy="102" r="54" fill="#E3F5EF" stroke="#08796F" stroke-width="2"/>
+    <path d="M170 35V21M170 169V184M103 102H87M237 102H253M122 54L110 42M218 54L230 42M122 150L110 162M218 150L230 162"
+      fill="none" stroke="#08796F" stroke-width="3" stroke-linecap="round"/>
+    <text x="170" y="114" text-anchor="middle" fill="#142740" font-size="34" font-weight="800">HPV</text>
+    <text x="170" y="214" text-anchor="middle" fill="#065B54" font-size="12">200種類以上の「型」がある</text>
+    <g fill="#526777" font-size="12">
+      <text x="40" y="50">16</text><text x="288" y="72">18</text>
+      <text x="38" y="158">52</text><text x="285" y="161">58</text>
+    </g>
+  </svg>
+</div>`;
+
+const course=`
+<div class="visual">
+  <svg viewBox="0 0 340 240" role="img" aria-label="多くの感染は自然消失。一部の持続感染が前がん病変やがんにつながることがある">
+    <g font-size="13" text-anchor="middle">
+      <rect x="12" y="17" width="91" height="48" rx="12" fill="#F3F7F5" stroke="#BBCDC5"/>
+      <text x="57" y="47" fill="#142740">HPV感染</text>
+      <path d="M104 41H145V27H178" fill="none" stroke="#08796F" stroke-width="2"/>
+      <rect x="181" y="4" width="145" height="55" rx="12" fill="#E3F5EF" stroke="#9BCBB8"/>
+      <text x="253" y="26" fill="#065B54">多くの感染は</text>
+      <text x="253" y="45" fill="#065B54" font-weight="800">自然に消失</text>
+      <path d="M145 41V90M149 136V157M207 182H240" stroke="#9B4832" stroke-width="2"/>
+      <rect x="93" y="94" width="113" height="41" rx="10" fill="#FFF2EC" stroke="#D9AF9F"/>
+      <text x="149" y="120" fill="#9B4832">持続感染</text>
+      <rect x="93" y="161" width="113" height="41" rx="10" fill="#FFF2EC" stroke="#D9AF9F"/>
+      <text x="149" y="187" fill="#9B4832">前がん病変</text>
+      <rect x="245" y="161" width="79" height="41" rx="10" fill="#FAE2D6" stroke="#C68F78"/>
+      <text x="284" y="187" fill="#9B4832" font-weight="800">がん</text>
+    </g>
+    <text x="163" y="83" fill="#9B4832" font-size="11">一部が長く続く</text>
+    <text x="170" y="229" text-anchor="middle" fill="#526777" font-size="10">経過には個人差があり、必ず進行するわけではありません</text>
+  </svg>
+</div>`;
+
+const shield=`
+<div class="visual">
+  <svg viewBox="0 0 340 218" role="img" aria-label="免疫を準備して対象型への感染を予防する模式図">
+    <circle cx="170" cy="87" r="76" fill="#F0F8F4" stroke="#BEDDD1"/>
+    <path d="M170 21L223 41V88Q223 128 170 154Q117 128 117 88V41Z"
+      fill="#E3F5EF" stroke="#08796F" stroke-width="2"/>
+    <path d="M170 112V83L152 65M170 83L188 65M152 65V53M152 65H140M188 65V53M188 65H200"
+      stroke="#08796F" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <g fill="#697F91"><circle cx="68" cy="66" r="9"/><circle cx="271" cy="88" r="9"/></g>
+    <path d="M82 66H105M238 88H256" stroke="#697F91" stroke-dasharray="3 4"/>
+    <text x="170" y="178" text-anchor="middle" fill="#065B54" font-size="12">免疫に、事前の準備を。</text>
+    <text x="170" y="204" text-anchor="middle" fill="#526777" font-size="11">ワクチン → 免疫の準備 → 対象型への感染予防</text>
+  </svg>
+</div>`;
+
+const themes=[
+{
+  label:'あなたとみんなの未来',en:'YOUR FUTURE',
+  title:'あなたの<br><span class="accent">将来のため、</span><br>みんなの<br><span class="accent">将来のために。</span>',
+  visual:community,
+  sub:'「なんであの時に……」<br>そんな後悔を減らすために、今、知ってほしい。',
+  body:'接種を迫るのではなく、<br>自分と大切な人の未来を考えるガイドです。',
+  extra:`
+  <div class="choices" aria-label="気になる話から読む">
+    <button class="choice" data-jump="1">HPVとは？</button>
+    <button class="choice" data-jump="5">効果・集団免疫</button>
+    <button class="choice" data-jump="6">男子の接種</button>
+    <button class="choice" data-jump="9">副反応</button>
+    <button class="choice" data-jump="10">公費・助成</button>
+  </div>`,
+  details:[detail('今日、決めなくてもいい。<br>まずは知るところから。',
+    info('下へ：話を進める','主画面で、感染から予防、制度、家族との対話までの流れをつかめます。','positive')+
+    info('横へ：気になる話を深掘り','図の意味や効果・限界を確認できます。画面下の矢印や丸印でも移動できます。')+
+    info('本人も、保護者も、同じチーム','期待できる効果とリスクを知り、本人と家族が納得して選ぶための情報です。')+
+    '<p class="caption">全12テーマ。04・09の限界と、10の安全性も必ず確認してください。</p>')]
+},
+{
+  label:'HPVは身近なウイルス',en:'VIRUS CHECK',
+  title:'特別な人だけの<br><span class="accent">ウイルスじゃない。</span>',
+  visual:virus,
+  sub:'性的な接触を経験する人の多くが、<br>生涯のうちに感染するHPV。',
+  body:'男女ともに関係します。<br>感染は、誰かが悪いからでも、不潔だからでもありません。',
+  details:[detail('身近なウイルス。<br>でも、必ず病気になるわけではない。',
+    info('主に性的な接触で感染','このガイドで扱う性器などのHPVは、性交だけでなく、性器周辺の皮膚・粘膜の接触でも感染し得ます。')+
+    info('多くは自然に消失','多くの感染は免疫の働きで自然に消失します。一部の高リスク型の感染が長く続くと病変につながることがあります。','positive')+
+    info('型によって関係する病気が違う','200種類以上の型すべてが、がんの原因になるわけではありません。')+source())]
+},
+{
+  label:'持続感染と将来への影響',en:'THE LONG VIEW',risk:true,
+  title:'今、症状がなくても。<br><span class="warm">将来に関わる<br>ことがある。</span>',
+  visual:course,
+  sub:'一部のHPVが長く残ると、年月をかけて<br>子宮頸がんなどの原因になることがあります。',
+  body:'感染した人が全員、がんになるわけではありません。',
+  details:[detail('感染、病変、がん。<br>同じものではありません。',
+    info('多くの感染は自然に消える','感染を知ったことだけで、将来の発症が決まるわけではありません。','positive')+
+    info('一部の持続感染が病変へ','高リスク型の感染が長く続くと、細胞に変化が起こることがあります。症状がなくても検査で見つかる病変があります。')+
+    info('経過には個人差','一定の年数で必ず病変やがんになるわけではありません。図は模式表現であり、個人のリスク予測には使えません。','caution')+source())]
+},
+{
+  label:'免疫を準備する',en:'PREPARE YOUR DEFENSE',
+  title:'ウイルスに<br>出会う前に、<br><span class="accent">防御を準備する。</span>',
+  visual:shield,
+  sub:'対象のHPV型に感染する前の接種が重要です。',
+  extra:'<p class="promise">すでにある感染を治す薬ではありません。<br>すべての感染や病気を完全に防ぐものでもありません。</p>',
+  details:[detail('予防の力と、限界。<br>どちらも知って選ぶ。',
+    info('免疫に事前の準備を','ウイルスの外側に似た構造を使って免疫を準備し、対象型への感染や関連する病変を予防します。ワクチンからHPVに感染するものではありません。','positive')+
+    info('感染の治療・完全防御はできない','すでにある感染の治療にはなりません。対象外の型もあり、子宮頸がん検診も引き続き重要です。','caution')+
+    info('副反応も確認する','接種部位の痛み・腫れなどや、まれに重いアレルギー反応があります。詳しくは10で確認してください。')+source())]
+},
+{
+  label:'世界の取り組み',en:'PREVENTION TOGETHER',
+  title:'予防を、<br><span class="accent">社会のしくみに。</span>',
+  visual:flow(['ワクチン','検診','適切な治療']),
+  sub:'個人だけに任せず、<br>予防や医療を受けやすくする。',
+  body:'世界では、これらを組み合わせて<br>子宮頸がんの負担を減らす取り組みが進んでいます。',
+  details:[detail('ワクチンだけで、<br>完結しない予防。',
+    info('WHOの90–70–90目標','2030年までに、女子の90％が15歳までに接種を完了、女性の70％が35歳と45歳までに高性能の検査を受け、子宮頸部の病変を持つ女性の90％が適切な治療・管理を受けることを目指す世界戦略です。','positive')+
+    info('制度は国ごとに違う','海外の接種対象や公費制度が、そのまま日本の条件になるわけではありません。')+
+    source('https://www.who.int/initiatives/cervical-cancer-elimination-initiative','WHOの世界戦略'))]
+},
+{
+  label:'予防の成果と公衆衛生',en:'YOU + PUBLIC HEALTH',
+  title:'自分を守る。<br><span class="accent">社会にも<br>保護を広げる。</span>',
+  visual:'<div id="community-view">'+community+'</div>',
+  sub:'一人ひとりの予防が、<br>社会の健康を守る力にもなる。',
+  extra:`
+    <div class="choices" aria-label="予防の二つの働き">
+      <button class="choice" data-immunity="self" aria-pressed="true">自分を守る</button>
+      <button class="choice" data-immunity="community" aria-pressed="false">広がりを抑える</button>
+    </div>
+    <p class="response" id="immunity-description" aria-live="polite">免疫を準備して、対象型への感染を予防します。</p>
+    <p class="caption">図は模式表現です。全員の完全な保護を示すものではありません。</p>`,
+  details:[
+    detail('予防の成果は、<br>数字にも。',
+      '<div class="metric"><p class="caption">スウェーデンの大規模観察研究</p><p class="subline">17歳未満の接種群で<br>子宮頸がんの相対的リスク</p><p class="big-type">88<small>％低下</small></p><p class="caption">調整後罹患率比0.12。未接種群との比較。</p></div>'+
+      info('個人への保証ではありません','4価ワクチンを対象とした観察研究です。この数値を、9価ワクチンの個人への効果や絶対的な発症確率としては使いません。','caution')+
+      source('https://doi.org/10.1056/NEJMoa1917338','Lei J et al. NEJM 2020')),
+    detail('接種していない人にも、<br>保護が及ぶことがある。',
+      info('集団免疫という間接効果','接種が広がると、対象型のHPVが伝わりにくくなり、未接種の人にも間接的な保護が及ぶことがあります。','positive')+
+      info('海外で観察された変化','女子への接種導入後、若い男性にも尖圭コンジローマの減少が観察されています。間接効果は接種率や人のつながり方などによって異なります。')+
+      info('集団免疫だけに頼らない','個人が必ず守られるわけではなく、自身の接種や必要な検診・相談を置き換えるものではありません。','caution')+
+      source('https://doi.org/10.1016/S0140-6736(19)30298-3','Drolet M et al. Lancet 2019')),
+    detail('公衆衛生とは、<br>健康を守れるしくみづくり。',
+      info('情報・接種・検診・相談を届ける','個人の頑張りだけに頼らず、社会として病気を予防する取り組みです。費用や場所などの障壁を減らすことも含まれます。','positive')+
+      info('個人の免疫と集団免疫','「自分を守る」と「感染の広がりを抑える」を区別して説明します。「攻守免疫」は一般的な医学用語ではないため、このガイドでは使用しません。')+
+      info('接種を強いる理由にはしません','社会への効果は大切ですが、本人の不安や事情を無視したり、未接種の人を責めたりする理由にはなりません。','caution'))
+  ]
+},
+{
+  label:'男子も自分事',en:'FOR BOYS TOO',
+  title:'男子にも、<br><span class="accent">自分を守る<br>予防の話。</span>',
+  visual:shield,
+  sub:'HPVは、性別を問わず関係するウイルス。',
+  body:'男性にも尖圭コンジローマや肛門がんなど、HPVに関連する病気があります。',
+  extra:'<p class="promise">使う製剤・対象年齢・助成の条件は、<br>医師と自治体に確認してください。</p>',
+  details:[detail('誰かのためだけでなく、<br>自分の健康のためにも。',
+    info('男性に関連する病気','HPVは尖圭コンジローマ、肛門がん、陰茎がん、中咽頭がんなどに関係します。すべてが国内で承認されたワクチンの予防対象という意味ではありません。')+
+    info('製剤と制度を確認','使用できる製剤、対象年齢、承認された効能・効果を医療機関で確認してください。')+
+    info('自治体の費用助成','男子の接種費用を助成する自治体があります。対象や助成額は地域によって異なります。','positive')+source(OFFICIAL))]
+},
+{
+  label:'治療と未来',en:'CARE FOR YOUR FUTURE',risk:true,
+  title:'病気だけでなく、<br><span class="warm">治療の負担も<br>減らすために。</span>',
+  visual:flow(['感染の予防','病変の減少','治療負担の軽減へ']),
+  sub:'前がん病変の予防も、<br>未来の体と暮らしを守ることにつながります。',
+  body:'病変の段階によっては、子宮頸部の一部を切除する治療が必要になります。',
+  details:[detail('必要な治療は、<br>一人ひとり違います。',
+    info('円錐切除とは','子宮頸部の一部を円錐形に切除する手術です。病変の診断や治療に用いられ、子宮を残せる場合があります。')+
+    info('妊娠・出産への影響','切除の深さや回数などにより、将来の妊娠時に早産などのリスクが高まることがあります。手術を受けたら妊娠できない、という意味ではありません。','caution')+
+    info('必要な治療を避けない','病変が見つかったら医師に相談してください。ワクチンは今ある病変の治療にはなりません。')+
+    source('https://ganjoho.jp/public/cancer/cervix/index.html','国立がん研究センター がん情報サービス'))]
+},
+{
+  label:'9価の範囲と限界',en:'NINE TYPES, NOT ALL',
+  title:'9つの型に備える。<br><span class="accent">でも、<br>すべてではない。</span>',
+  visual:'<div class="types" aria-label="9価ワクチンの対象型">'+[6,11,16,18,31,33,45,52,58].map(n=>`<span>${n}</span>`).join('')+'</div>',
+  sub:'9価ワクチンは、<br>9種類のHPV型を対象にしています。',
+  extra:'<p class="promise">子宮頸がんの原因となる型の約90％をカバー。<br>必ず90％防げる、という意味ではありません。<br>接種後も、対象年齢になったら検診を。</p>',
+  details:[detail('「対象の範囲」と<br>「個人の効果」は別。',
+    info('対象型','6・11型は尖圭コンジローマに、16・18・31・33・45・52・58型は子宮頸がんなどに関係する高リスク型です。')+
+    info('子宮頸がん検診も重要','日本では20歳以上の女性に子宮頸がん検診が勧められています。細胞診は原則2年に1回。HPV検査単独法では対象年齢や結果などに応じた別の間隔になるため、自治体の案内を確認してください。','caution')+
+    info('症状があれば検診を待たない','不正出血など気になる症状がある場合は、検診の時期を待たず医療機関へ相談してください。')+source(OFFICIAL))]
+},
+{
+  label:'対話と安全性',en:'SAFETY + CONVERSATION',risk:true,
+  title:'不安も、<br><span class="warm">大切な<br>判断材料。</span>',
+  sub:'副反応の可能性と、<br>困ったときの相談先も知っておこう。',
+  extra:
+    info('主画面でも確認：副反応','接種部位の痛み・腫れ・赤み、頭痛、発熱などが起こることがあります。まれにアナフィラキシーなど重い反応もあります。','caution')+
+    '<p class="promise">接種後は医療機関の指示に従って観察を。<br>息苦しさや意識の異常などは直ちに医療者へ。院外で緊急の症状があれば119番。</p>'+
+    '<label><input type="checkbox" id="safety-read"> 副反応と、緊急時の対応を確認しました</label>',
+  details:[detail('「気になる」を、<br>一人で抱えない。',
+    info('接種前に伝える','過去の接種後の症状、アレルギー、今の体調、服薬、妊娠の可能性などを医師に伝えてください。')+
+    info('失神・転倒を防ぐ','注射の痛みや緊張などで失神することがあります。接種後は指示に従い、座る・横になるなどして転倒を防いでください。')+
+    info('症状が続いたら相談','接種後に症状が出たという時間的な関係だけで、原因がワクチンと確定するわけではありません。ただし我慢する必要はありません。医療機関へ相談してください。','caution')+
+    source(OFFICIAL,'相談窓口・協力医療機関・救済制度の公式案内'))]
+},
+{
+  label:'公費と自治体の助成',en:'SUPPORT FOR YOUR CHOICE',
+  title:'公費や助成で、<br><span class="accent">受けられることも。</span>',
+  sub:'費用が気になったら、<br>住んでいる自治体の制度を確認しよう。',
+  extra:`
+    <details>
+      <summary>女子の定期接種｜対象なら公費</summary>
+      <p>小学6年生〜高校1年生相当の女子が対象です。対象期間、接種歴、必要な手続きを自治体に確認してください。</p>
+    </details>
+    <details>
+      <summary>男子の接種｜自治体の助成を確認</summary>
+      <p>費用を助成する自治体があります。対象年齢・製剤・助成額・申請期限・指定医療機関は自治体ごとに異なります。助成があっても全額無料とは限りません。</p>
+    </details>
+    <details>
+      <summary>機会を逃した人｜キャッチアップと独自支援</summary>
+      <p>国のキャッチアップ接種の初回期限は2025年3月31日、一定の条件を満たす方の残りの接種の経過措置は2026年3月31日まででした。現在利用できる自治体独自の支援などは個別に確認してください。</p>
+    </details>
+    <p class="caption">国のキャッチアップ期限についての記載基準日：2026年10月8日。自治体の助成は、地域と申請時点の公式案内を確認してください。</p>
+    ${source(OFFICIAL)}`,
+  details:[detail('対象・期限・回数は、<br>セットで確認。',
+    info('9価の接種回数の基本','初回が15歳未満なら通常2回、15歳以上なら通常3回。2回接種では通常6か月あけます。間隔が短い場合などは追加接種が必要になることがあります。接種歴や免疫の状態も含め医師に確認してください。')+
+    info('自治体に聞くとき','年齢・住所・接種日・製剤名を用意。「男子の助成は？」「機会を逃した人の支援は？」「接種前の申請は必要？」と確認しましょう。','positive')+
+    info('国の制度と独自助成は別','全国一律のキャッチアップ公費制度が現在も続いている、という意味ではありません。','caution')+
+    source(CATCHUP,'国のキャッチアップ接種の案内'))]
+},
+{
+  label:'自分の気持ちと家族との対話',en:'YOUR FEELINGS FIRST',
+  title:'いちばん大切なのは、<br><span class="accent">あなたの気持ち。</span>',
+  sub:'知りたい。受けてみたい。少し怖い。<br>まだ決められない。',
+  body:'どの気持ちも、話していい。<br>あなたの気持ちから、家族と話してみよう。',
+  extra:`
+    <div class="choices" aria-label="今の気持ち">
+      <button class="choice" data-feeling="考えたい" aria-pressed="false">接種を考えたい</button>
+      <button class="choice" data-feeling="心配" aria-pressed="false">副反応が心配</button>
+      <button class="choice" data-feeling="知りたい" aria-pressed="false">もっと知りたい</button>
+      <button class="choice" data-feeling="迷っている" aria-pressed="false">まだ迷っている</button>
+    </div>
+    <p class="response" id="feeling-message" aria-live="polite">気持ちを選ぶと、家族に伝える言葉の例が表示されます。</p>
+    <div class="actions">
+      <button class="action primary" id="make-note">家族と話すメモをつくる →</button>
+      <button class="action" data-jump="9">副反応を確認する</button>
+    </div>
+    <p class="promise">今日、決めなくても大丈夫。<br>本人の意思と十分な説明を大切にします。</p>
+    <div class="share-area">
+      <h3>家族にも、<br>一緒に見てほしい。</h3>
+      <p class="body">このガイドを共有して、あなたの気持ちを話してみよう。</p>
+      <div class="qr" id="qr"><p>QRコードを準備しています…</p></div>
+      <p class="caption">このガイドを開くQRコード</p>
+      <a class="url" href="${CONFIG.url}">${CONFIG.url}</a>
+      <div class="actions">
+        <button class="action primary" id="share">家族に送る</button>
+        <button class="action" id="copy-link">リンクをコピー</button>
       </div>
+      <p class="caption">共有されるのはLPのリンクだけ。気持ちやメモは自動送信されません。QRは別の端末で読むときに使えます。</p>
+      <p class="source" id="update-state">V5｜更新確認を準備中</p>
+    </div>`,
+  details:[detail('あなたの言葉で、<br>話してみよう。',
+    '<label for="family-note">家族や医師に相談したいこと（編集できます）</label>'+
+    '<textarea id="family-note" placeholder="気持ち、疑問、心配なことを書いてみよう。"></textarea>'+
+    '<div class="actions"><button class="action primary" id="copy-note">メモをコピー</button></div>'+
+    info('話し合うポイント','気持ち、効果と限界、副反応、費用、予定。一度で全部決める必要はありません。')+
+    info('家族と意見が違ったら','急いで結論を出さず、お互いの理由を聞いてみましょう。必要なら医師にも一緒に相談できます。')+
+    '<p class="caption">メモはサーバーに送信しません。更新適用時だけ同じタブ内に一時退避し、復元後に削除します。通常の再読み込みでは失われます。</p>')]
+}
+];
 
-      <h1 class="text-[1.55rem] sm:text-2xl font-black tracking-tight text-slate-800 leading-snug">
-        将来の自分と家族のために、<br>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-teal-600 to-rose-500 inline-block mt-1">
-          今、知っておきたいHPVのこと
-        </span>
-      </h1>
-      
-      <p class="text-xs sm:text-sm text-slate-600 mt-3.5 leading-relaxed font-normal">
-        接種を押しつけるのではなく、期待できる効果・起こり得るリスク・制度を正しく理解し、<strong class="text-slate-800 font-semibold underline decoration-sky-200 decoration-4 underline-offset-2">本人とご家族が納得して選ぶための情報</strong>です。
-      </p>
+const app=document.getElementById('app');
+const status=document.getElementById('status');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+const behavior=()=>reduced.matches?'auto':'smooth';
+const lifecycle=new AbortController();
+const listen=(target,event,handler,options={})=>
+  target.addEventListener(event,handler,{...options,signal:lifecycle.signal});
+let active=0,toastTimer,resizeTimer,destroyed=false;
 
-      <!-- 対象・立場別ジャンプナビ -->
-      <div class="mt-6 p-4 rounded-2xl bg-white/90 border border-slate-200/90 shadow-sm text-left">
-        <p class="text-xs font-bold text-sky-700 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-          <span class="text-sky-500">▼</span> 気になる項目から読む（タップで移動）
-        </p>
-        <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
-          <button onclick="scrollToCard('sec-basics')" class="p-2.5 rounded-xl bg-sky-50/60 hover:bg-sky-100/70 border border-sky-100 active:scale-95 text-slate-700 text-left transition flex items-center gap-1.5 shadow-2xs">
-            <span>🦠</span> HPVとは？
-          </button>
-          <button onclick="scrollToCard('sec-benefits')" class="p-2.5 rounded-xl bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-100 active:scale-95 text-slate-700 text-left transition flex items-center gap-1.5 shadow-2xs">
-            <span>✨</span> 期待できる効果
-          </button>
-          <button onclick="scrollToCard('sec-safety')" class="p-2.5 rounded-xl bg-amber-50/60 hover:bg-amber-100/70 border border-amber-100 active:scale-95 text-slate-700 text-left transition flex items-center gap-1.5 shadow-2xs">
-            <span>⚠️</span> 副反応と相談先
-          </button>
-          <button onclick="scrollToCard('sec-male')" class="p-2.5 rounded-xl bg-indigo-50/60 hover:bg-indigo-100/70 border border-indigo-100 active:scale-95 text-slate-700 text-left transition flex items-center gap-1.5 shadow-2xs">
-            <span>👦</span> 男子接種の意義
-          </button>
-          <button onclick="scrollToCard('sec-community')" class="p-2.5 rounded-xl bg-purple-50/60 hover:bg-purple-100/70 border border-purple-100 active:scale-95 text-slate-700 text-left transition flex items-center gap-1.5 shadow-2xs">
-            <span>🌐</span> 集団免疫とは
-          </button>
-          <button onclick="scrollToCard('sec-faq')" class="p-2.5 rounded-xl bg-rose-50/60 hover:bg-rose-100/70 border border-rose-100 active:scale-95 text-slate-700 text-left transition flex items-center gap-1.5 shadow-2xs">
-            <span>❓</span> よくある質問
-          </button>
-        </div>
+app.innerHTML=themes.map((t,i)=>`
+<section class="chapter ${t.risk?'risk':''}" aria-label="${i+1} ${t.label}">
+  <header class="top">
+    <div class="brand">FUTURE <b>SELF-CARE</b></div>
+    <span class="edition">${i===0?'白ベース V5｜全12話':t.label}</span>
+  </header>
+  <div class="rail" tabindex="0" aria-label="テーマ${i+1}の主画面と補足">
+    <article class="slide">
+      <div class="slide-inner">
+        <p class="tag">${String(i+1).padStart(2,'0')} / ${t.en}</p>
+        <${i===0?'h1':'h2'} class="headline">${t.title}</${i===0?'h1':'h2'}>
+        ${t.visual||''}
+        <p class="subline">${t.sub}</p>
+        ${t.body?`<p class="body">${t.body}</p>`:''}
+        ${t.extra||''}
       </div>
-
-      <div class="mt-4 p-3 rounded-xl bg-amber-50/80 border border-amber-200/70 text-[11px] text-amber-900 text-left flex items-start gap-2 shadow-2xs">
-        <span class="text-amber-500 font-bold text-sm">💡</span>
-        <span class="leading-relaxed"><strong>今日この場で決める必要はありません。</strong>ご家庭でゆっくり話し合い、疑問があれば医師や自治体に確認したうえでご判断ください。</span>
+      <div class="hint"><span>横で深掘り／下で次の話</span><button data-detail>詳しく →</button></div>
+    </article>
+    ${t.details.map((d,n)=>`
+    <article class="slide detail">
+      <div class="slide-inner">
+        <p class="tag">${String(i+1).padStart(2,'0')} / DEEP DIVE ${n+1}</p>
+        <h2>${d.title}</h2>${d.content}
       </div>
-    </section>
-
-    <!-- ==========================================
-         2. HPVの基礎知識
-    ========================================== -->
-    <section id="sec-basics" class="p-6 border-b border-slate-100 bg-slate-50/50 space-y-4">
-      <div>
-        <span class="text-[11px] font-bold text-sky-600 tracking-wider uppercase block mb-0.5">CHAPTER 01</span>
-        <h2 class="text-lg sm:text-xl font-bold text-slate-800">
-          HPV（ヒトパピローマウイルス）とは？
-        </h2>
-        <p class="text-xs text-slate-500 mt-1">
-          特別な病気ではなく、ごくありふれたウイルスです。
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 gap-3 text-xs">
-        <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-2">
-          <p class="font-bold text-slate-800 flex items-center gap-1.5 text-[13px]">
-            <span class="w-2 h-2 rounded-full bg-sky-500"></span> 誰でも一度は感染し得るウイルス
-          </p>
-          <p class="text-slate-600 leading-relaxed">
-            皮膚や粘膜の接触を通じて感染します。特別な人だけが感染するものではなく、性的な接触のある人であれば男女を問わず生涯で多くの人が感染します。<strong class="text-slate-800">感染したことは決して誰かが悪いわけでも、不潔だからでもありません。</strong>
-          </p>
-        </div>
-
-        <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-2">
-          <p class="font-bold text-slate-800 flex items-center gap-1.5 text-[13px]">
-            <span class="w-2 h-2 rounded-full bg-sky-500"></span> 多くは自然に消えるが、一部が病気の原因に
-          </p>
-          <p class="text-slate-600 leading-relaxed">
-            HPVには200種類以上の型があり、多くは免疫の働きで自然に消失します。ただし、一部の「高リスク型」が長期間排除されずに持続感染すると、数年〜十数年かけて細胞に変化を起こし、子宮頸がんなどの原因になることがあります。
-          </p>
-        </div>
-
-        <div class="p-4 rounded-2xl bg-rose-50/60 border border-rose-200/80 text-slate-700 space-y-1.5 shadow-sm">
-          <p class="font-bold text-rose-800 text-xs flex items-center gap-1.5">
-            <span>⚠️</span> 日本における子宮頸がんの現状
-          </p>
-          <p class="text-xs leading-relaxed text-slate-700">
-            日本では毎年およそ<strong>1万人前後が罹患</strong>し、約<strong>2,900人が命を落としています</strong>。20代後半から罹患率が上昇し、若い世代の健康や将来のライフプラン（妊娠・出産・仕事など）に大きな影響を及ぼす病気です。
-          </p>
-          <p class="text-[10px] text-slate-400">※出典：国立がん研究センター がん情報サービス公的統計に基づく</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         3. ワクチンの効果とメリット
-    ========================================== -->
-    <section id="sec-benefits" class="p-6 border-b border-slate-100 bg-white space-y-5">
-      <div>
-        <span class="text-[11px] font-bold text-emerald-600 tracking-wider uppercase block mb-0.5">CHAPTER 02</span>
-        <h2 class="text-lg sm:text-xl font-bold text-slate-800">
-          HPVワクチンで期待できる予防効果
-        </h2>
-        <p class="text-xs text-slate-500 mt-1">
-          感染する「前」の接種が最も高い効果を発揮します。
-        </p>
-      </div>
-
-      <div class="space-y-3 text-xs">
-        <!-- メリット1 -->
-        <div class="p-4 rounded-2xl bg-emerald-50/40 border border-emerald-100/90 shadow-sm space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="font-bold text-emerald-800 text-sm">① 子宮頸がん原因型の約90%をカバー</span>
-            <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 text-[10px] font-bold">9価ワクチン</span>
-          </div>
-          <p class="text-slate-600 leading-relaxed">
-            公費定期接種で使われる「9価ワクチン（シルガード9）」は、子宮頸がんの主要な原因となる高リスク型HPVを含む9種類の型を標的にしています。子宮頸がん原因型の約90%を予防する設計です。
-          </p>
-        </div>
-
-        <!-- メリット2 -->
-        <div class="p-4 rounded-2xl bg-emerald-50/40 border border-emerald-100/90 shadow-sm space-y-2">
-          <span class="font-bold text-emerald-800 text-sm">② 「がんの手前（前がん病変）」と治療負担を防ぐ</span>
-          <p class="text-slate-600 leading-relaxed">
-            ワクチンは進行がんだけでなく、細胞が変化する一歩手前の「高度前がん病変」を大きく減らすことが確認されています。これにより、将来的な精密検査や組織採取、子宮の一部を切り取る手術（円錐切除術など）を避けることにつながります。
-          </p>
-          <div class="p-3 rounded-xl bg-white border border-emerald-100 text-[11px] text-slate-600 leading-relaxed shadow-2xs">
-            <strong class="text-emerald-900">円錐切除術の影響：</strong>子宮を残せる手術ですが、切除範囲等により将来の妊娠時に早産・流産のリスクが高まる場合があります。前がん病変自体を防ぐことは、身体的・将来的な負担の軽減につながります。
-          </div>
-        </div>
-
-        <!-- メリット3 -->
-        <div class="p-4 rounded-2xl bg-emerald-50/40 border border-emerald-100/90 shadow-sm space-y-2">
-          <span class="font-bold text-emerald-800 text-sm">③ 長期にわたる予防効果の維持</span>
-          <p class="text-slate-600 leading-relaxed">
-            国内外の大規模追跡調査により、接種完了後も長期間にわたり十分な抗体と予防効果が維持されることが確認されています。現時点で定期的な追加接種は推奨されていません。
-          </p>
-        </div>
-      </div>
-
-      <!-- ワクチンの限界と検診の併用 -->
-      <div class="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-2 text-xs shadow-sm">
-        <p class="font-bold text-amber-900 flex items-center gap-1.5">
-          <span>📌</span> ワクチンで「できること」と「できないこと」
-        </p>
-        <ul class="space-y-1.5 text-slate-700 list-disc list-inside leading-relaxed text-[11px]">
-          <li><strong>できること：</strong>対象となるHPV型の感染予防、それによる前がん病変・関連疾患のリスク低下。</li>
-          <li><strong>できないこと：</strong>すでに感染しているウイルスの治療、対象外の型による病変の完全防止。</li>
-        </ul>
-        <p class="text-[11px] text-amber-900/90 pt-2 border-t border-amber-200/80 font-medium">
-          ⚠️ ワクチンで100%防げるわけではないため、<strong>20歳を過ぎたら定期的な子宮頸がん検診を受けること</strong>が不可欠です（ワクチンと検診の併用が重要）。
-        </p>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         4. 安全性・副反応と困ったときの相談先
-    ========================================== -->
-    <section id="sec-safety" class="p-6 border-b border-slate-100 bg-slate-50/50 space-y-4">
-      <div>
-        <span class="text-[11px] font-bold text-amber-700 tracking-wider uppercase block mb-0.5">CHAPTER 03</span>
-        <h2 class="text-lg sm:text-xl font-bold text-slate-800">
-          接種前に知っておきたいこと・副反応
-        </h2>
-        <p class="text-xs text-slate-500 mt-1">
-          起こり得る症状と、症状が長引いた場合の支援体制です。
-        </p>
-      </div>
-
-      <div class="space-y-3 text-xs">
-        <!-- 主な症状 -->
-        <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-2">
-          <p class="font-bold text-slate-800">主な副反応・起こり得る症状</p>
-          <p class="text-slate-600 leading-relaxed">
-            筋肉注射であるため、接種部位の<strong>痛み・赤み・腫れ</strong>が比較的多くみられます。また、軽度の発熱、頭痛、倦怠感などが一時的に現れることがあります。多くは数日以内に回復します。
-          </p>
-          <div class="p-3 rounded-xl bg-sky-50/60 border border-sky-100 text-[11px] text-slate-600 leading-relaxed">
-            <strong class="text-sky-900">血管迷走神経反射（立ちくらみ・失神）：</strong>注射への強い緊張や痛みにより、ふらつきや失神が起きることがあります。転倒事故を防ぐため、接種後15〜30分は医療機関内で座って安静に待機してください。
-          </div>
-        </div>
-
-        <!-- 詳細アコーディオン：公的評価と救済制度 -->
-        <details class="rounded-2xl bg-white border border-slate-200/80 shadow-sm p-4 transition">
-          <summary class="cursor-pointer font-bold text-sky-700 flex items-center justify-between select-none">
-            <span class="flex items-center gap-1.5"><span>📋</span> 過去の経緯・救済制度・安全性評価について</span>
-            <svg class="chevron-icon w-4 h-4 transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </summary>
-          <div class="mt-3 pt-3 border-t border-slate-100 space-y-2 text-slate-600 text-[11px] leading-relaxed">
-            <p>• <strong>積極的勧奨の差し控えと再開：</strong>2013年に接種後の多様な慢性症状（持続的な痛みや運動障害等）が報告され、適切な情報提供体制が整うまで一時的に積極的勧奨が差し控えられました。その後の国内外の大規模調査・安全性評価を経て、「特段の懸念は認められず有効性がリスクを明らかに上回る」と判断され、2022年4月より個別勧奨が再開されました。</p>
-            <p>• <strong>副反応疑い報告について：</strong>接種後に生じた症状を幅広く収集する仕組みであり、報告されたすべてがワクチンとの直接の因果関係を認められた症例ではありません。</p>
-            <p>• <strong>予防接種健康被害救済制度：</strong>万が一、定期接種後に健康被害が生じ、国の審査で因果関係が認定された場合には、医療費や手当などの公的な救済給付が受けられる制度があります。</p>
-          </div>
-        </details>
-
-        <!-- 困ったときの相談窓口 -->
-        <div class="p-4 rounded-2xl bg-indigo-50/70 border border-indigo-100 shadow-sm space-y-2">
-          <p class="font-bold text-indigo-900 text-xs flex items-center gap-1.5">
-            <span>🩺</span> 接種後に強い症状や不安があるときの相談先
-          </p>
-          <ul class="text-[11px] text-slate-700 space-y-1.5 leading-relaxed">
-            <li>1. <strong>接種を受けた医療機関・かかりつけ医</strong>（まずは直接受診・相談）</li>
-            <li>2. <strong>お住まいの自治体の予防接種担当窓口</strong>（制度や対応の確認）</li>
-            <li>3. <strong>各都道府県に設置された専門協力医療機関</strong>（症状が長引く場合の診療体制）</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         5. 男子接種の意義と集団免疫
-    ========================================== -->
-    <section id="sec-male" class="p-6 border-b border-slate-100 bg-white space-y-5">
-      <div>
-        <span class="text-[11px] font-bold text-sky-600 tracking-wider uppercase block mb-0.5">CHAPTER 04</span>
-        <h2 class="text-lg sm:text-xl font-bold text-slate-800">
-          HPVは女子だけの問題ではない
-        </h2>
-        <p class="text-xs text-slate-500 mt-1">
-          男子自身の健康維持と、男女で取り組む意義です。
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 gap-3 text-xs">
-        <div class="p-4 rounded-2xl bg-sky-50/50 border border-sky-100/90 shadow-sm space-y-2">
-          <p class="font-bold text-sky-900 text-sm">👦 男子本人を守る直接的な利益</p>
-          <p class="text-slate-600 leading-relaxed">
-            男性もHPVに感染します。尖圭コンジローマ（生殖器周辺のイボ）、肛門がん、中咽頭がん（のどのがん）、陰茎がんなどに関係します。男子の接種は、まず<strong>男子自身の病気を防ぐための直接的な予防</strong>です。
-          </p>
-        </div>
-
-        <div id="sec-community" class="p-4 rounded-2xl bg-purple-50/50 border border-purple-100/90 shadow-sm space-y-2">
-          <p class="font-bold text-purple-900 text-sm">🌐 接種する人が増えることの意義（集団免疫）</p>
-          <p class="text-slate-600 leading-relaxed">
-            男女双方が予防に取り組むことで、ウイルスが次の人に伝わる連鎖を断ちやすくなります。オーストラリアでは女子の接種率上昇に伴い、当時未接種だった同世代の男性の間でも尖圭コンジローマが激減するなど、未接種者にも波及する間接効果が確認されています。
-          </p>
-          <div class="p-3 rounded-xl bg-white border border-purple-100 text-[11px] text-slate-600">
-            <strong class="text-purple-900">※同調圧力ではありません：</strong>集団免疫は公衆衛生上の価値ですが、個人に我慢や接種を強要するためのものではありません。本人の直接利益と安全への納得を最優先に考えてください。
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         6. よくある質問
-    ========================================== -->
-    <section id="sec-faq" class="p-6 border-b border-slate-100 bg-slate-50/50 space-y-4">
-      <div class="text-center">
-        <span class="text-[11px] font-bold text-indigo-600 tracking-wider uppercase block mb-0.5">Q&amp;A</span>
-        <h2 class="text-lg sm:text-xl font-bold text-slate-800">よくある疑問・ご不安</h2>
-        <p class="text-xs text-slate-500 mt-1">講演会で多く寄せられる質問にお答えします。</p>
-      </div>
-
-      <div class="space-y-2.5 text-xs">
-        <!-- Q1 -->
-        <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-1.5">
-          <p class="font-bold text-sky-800 flex items-center gap-1.5 text-[13px]">
-            <span class="text-sky-500 font-bold">Q.</span> なぜ小学校6年生〜高校1年生で受けるのですか？
-          </p>
-          <p class="text-slate-600 leading-relaxed text-[11px] pl-4">
-            ウイルスに感染する前に接種を完了するほど高い予防効果が得られ、若い年齢の方が免疫反応（抗体産生）が良好であるためです。早い性行動を前提にしているという意味ではありません。
-          </p>
-        </div>
-
-        <!-- Q2 -->
-        <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-1.5">
-          <p class="font-bold text-sky-800 flex items-center gap-1.5 text-[13px]">
-            <span class="text-sky-500 font-bold">Q.</span> ワクチンを受けると将来、不妊になりますか？
-          </p>
-          <p class="text-slate-600 leading-relaxed text-[11px] pl-4">
-            国内外の大規模な疫学調査や安全性評価において、HPVワクチンが不妊を引き起こすという科学的根拠は確認されていません。
-          </p>
-        </div>
-
-        <!-- Q3 -->
-        <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-1.5">
-          <p class="font-bold text-sky-800 flex items-center gap-1.5 text-[13px]">
-            <span class="text-sky-500 font-bold">Q.</span> 接種回数は何回ですか？
-          </p>
-          <p class="text-slate-600 leading-relaxed text-[11px] pl-4">
-            9価ワクチンの場合、15歳未満で1回目を接種する場合は計2回、15歳以上で開始する場合は計3回が基本です。接種間隔や他ワクチンとの併用は医師へご確認ください。
-          </p>
-        </div>
-
-        <!-- Q4 -->
-        <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-1.5">
-          <p class="font-bold text-sky-800 flex items-center gap-1.5 text-[13px]">
-            <span class="text-sky-500 font-bold">Q.</span> 男子も公費（無料）で受けられますか？
-          </p>
-          <p class="text-slate-600 leading-relaxed text-[11px] pl-4">
-            男子への公費助成制度は自治体によって導入状況や助成額が異なります。お住まいの市区町村の予防接種窓口や公式ウェブサイトをご確認ください。
-          </p>
-        </div>
-
-        <!-- Q5 -->
-        <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-1.5">
-          <p class="font-bold text-sky-800 flex items-center gap-1.5 text-[13px]">
-            <span class="text-sky-500 font-bold">Q.</span> 今日受けない（接種しない）選択もできますか？
-          </p>
-          <p class="text-slate-600 leading-relaxed text-[11px] pl-4">
-            はい。予防接種はご本人と保護者が納得のうえで受けるものです。迷いがある場合は無理に決めず、かかりつけ医等に不安を相談してからご判断ください。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         7. 今日からできること & 共有CTA
-    ========================================== -->
-    <footer class="p-6 pt-8 pb-12 bg-white text-center space-y-6">
-      
-      <div class="p-5 rounded-2xl bg-gradient-to-b from-sky-50 to-white border border-sky-200/80 shadow-sm text-left space-y-3">
-        <p class="text-xs font-bold text-sky-800 flex items-center gap-1.5">
-          <span class="text-sky-600">✅</span> 今日からできる「3つのステップ」
-        </p>
-        <ol class="space-y-2 text-xs text-slate-700 leading-relaxed list-decimal list-inside font-medium">
-          <li><strong>ご家庭で話し合う：</strong>不安な点や疑問を言葉にしてみる</li>
-          <li><strong>自治体の制度を確認する：</strong>対象年齢や公費助成期間をチェック</li>
-          <li><strong>かかりつけ医・医療機関に相談する：</strong>体調や接種スケジュールを相談</li>
-        </ol>
-      </div>
-
-      <!-- QRコード・家族間シェアエリア -->
-      <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-sm space-y-3.5">
-        <p class="text-xs font-bold text-slate-800 flex items-center justify-center gap-1.5">
-          <span class="text-rose-400">💌</span> このページをご家族・お子さまとシェア
-        </p>
-        
-        <div class="flex justify-center p-2.5 bg-white rounded-2xl w-36 h-36 mx-auto shadow-sm border border-slate-200/60 overflow-hidden">
-          <img id="qr-image" 
-               src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fmatsuodentalassociation.github.io%2Fhpv-vaccineguide%2F" 
-               alt="QRコード" 
-               class="w-full h-full object-contain" />
-        </div>
-        
-        <p class="text-[11px] text-slate-500 leading-normal">
-          スマートフォンのカメラで読み取るか、<br>下のボタンでURLをコピーしてLINE等で送信できます
-        </p>
-
-        <button onclick="copyCurrentUrl(this)" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-sky-600 to-teal-600 hover:from-sky-500 hover:to-teal-500 active:scale-98 text-xs font-bold text-white shadow-md shadow-sky-500/20 transition flex items-center justify-center gap-2">
-          <span id="copy-icon">🔗</span>
-          <span id="copy-text">このページのリンクをコピーする</span>
-        </button>
-      </div>
-
-      <!-- クレジット・監修・免責 -->
-      <div class="pt-4 border-t border-slate-100 space-y-1.5 text-center">
-        <p class="text-[9px] text-slate-400 leading-relaxed">
-          出典：厚生労働省「HPVワクチンに関するリーフレット・Q&A」、国立がん研究センター がん情報サービス、日本小児科学会・日本産科婦人科学会知見に基づく
-        </p>
-        <p class="text-[9px] text-slate-600 font-bold">
-          監修：葛飾区医師会 小児保健部理事 平瀬 悦子 &nbsp;|&nbsp; 制作・運営：MDA
-        </p>
-        <p class="text-[9px] text-slate-400">
-          © 2026 Comprehensive Public Health Information Project (MDA)
-        </p>
-        <p class="text-[9px] text-slate-400">
-          ※本ページは講演会の持ち帰り・学習用資料であり、個別の医学的診断に代わるものではありません。
-        </p>
-      </div>
-    </footer>
-
+      <div class="hint"><span>← 左で前の画面へ</span><span>補足 ${n+1} / ${t.details.length}</span></div>
+    </article>`).join('')}
   </div>
+</section>`).join('');
 
-  <!-- 動作スクリプト -->
-  <script>
-    function scrollToCard(cardId) {
-      const el = document.getElementById(cardId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        el.classList.remove('highlight-target');
-        void el.offsetWidth;
-        el.classList.add('highlight-target');
+const chapters=[...app.querySelectorAll('.chapter')];
+const states=[];
+
+function say(text,duration=4500){
+  const toast=document.getElementById('toast');
+  toast.textContent=text;toast.hidden=false;status.textContent=text;
+  clearTimeout(toastTimer);
+  if(duration)toastTimer=setTimeout(()=>toast.hidden=true,duration);
+}
+
+function verticalGo(index,instant=false){
+  if(!chapters[index]||destroyed)return;
+  active=index;
+  app.scrollTo({
+    top:chapters[index].offsetTop-chapters[0].offsetTop,
+    behavior:instant?'auto':behavior()
+  });
+}
+
+chapters.forEach((chapter,index)=>{
+  const rail=chapter.querySelector('.rail');
+  const slides=[...rail.children];
+  let current=0,frame;
+  const nav=document.createElement('nav');
+  nav.className='navigation';
+  nav.setAttribute('aria-label',`テーマ${index+1}の操作`);
+  nav.innerHTML=`
+    <div class="horizontal">
+      <button class="left" aria-label="前の横画面">←</button>
+      <div class="dots">${slides.map((_,n)=>`<button aria-label="${n===0?'主画面':'補足画面'+n}" aria-current="${n===0}"></button>`).join('')}</div>
+      <button class="right" aria-label="次の横画面">→</button>
+    </div>
+    <div class="vertical">
+      <button class="previous" ${index===0?'disabled':''}>↑ 前の話</button>
+      <span class="count">${String(index+1).padStart(2,'0')} / ${chapters.length}</span>
+      <button class="next">${index===chapters.length-1?'最初に戻る ↺':'次の話 ↓'}</button>
+    </div>`;
+  chapter.append(nav);
+  const left=nav.querySelector('.left'),right=nav.querySelector('.right');
+  const dots=[...nav.querySelectorAll('.dots button')];
+
+  function go(n,instant=false){
+    n=Math.max(0,Math.min(slides.length-1,n));
+    rail.scrollTo({
+      left:slides[n].offsetLeft-slides[0].offsetLeft,
+      behavior:instant?'auto':behavior()
+    });
+    if(instant)update(n);
+  }
+  function update(n){
+    current=n;left.disabled=n===0;right.disabled=n===slides.length-1;
+    dots.forEach((dot,i)=>dot.setAttribute('aria-current',String(i===n)));
+  }
+  update(0);
+  dots.forEach((dot,n)=>listen(dot,'click',()=>go(n)));
+  listen(left,'click',()=>go(current-1));
+  listen(right,'click',()=>go(current+1));
+  listen(chapter.querySelector('[data-detail]'),'click',()=>go(1));
+  listen(nav.querySelector('.previous'),'click',()=>verticalGo(index-1));
+  listen(nav.querySelector('.next'),'click',()=>verticalGo(index===chapters.length-1?0:index+1));
+  listen(rail,'scroll',()=>{
+    cancelAnimationFrame(frame);
+    frame=requestAnimationFrame(()=>{
+      if(destroyed)return;
+      let nearest=0,best=Infinity;
+      slides.forEach((slide,n)=>{
+        const distance=Math.abs(rail.scrollLeft-(slide.offsetLeft-slides[0].offsetLeft));
+        if(distance<best){best=distance;nearest=n;}
+      });
+      update(nearest);
+    });
+  },{passive:true});
+  listen(rail,'keydown',event=>{
+    if(event.target!==rail)return;
+    const actions={
+      ArrowRight:()=>go(current+1),ArrowLeft:()=>go(current-1),
+      ArrowDown:()=>verticalGo(index+1),ArrowUp:()=>verticalGo(index-1)
+    };
+    if(actions[event.key]){event.preventDefault();actions[event.key]();}
+  });
+  states.push({rail,go,get current(){return current;}});
+});
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting&&entry.intersectionRatio>.6){
+      active=chapters.indexOf(entry.target);
+      status.textContent=`テーマ${active+1} / ${chapters.length}：${themes[active].label}`;
+    }
+  });
+},{root:app,threshold:.65});
+chapters.forEach(chapter=>observer.observe(chapter));
+
+listen(window,'resize',()=>{
+  clearTimeout(resizeTimer);
+  resizeTimer=setTimeout(()=>{
+    if(destroyed)return;
+    verticalGo(active,true);
+    states.forEach(s=>s.go(s.current,true));
+  },180);
+});
+
+document.querySelectorAll('[data-jump]').forEach(button=>{
+  listen(button,'click',()=>verticalGo(Number(button.dataset.jump)));
+});
+
+/*
+ * 反応の役割分担：
+ * 押している間＝CSSの沈み込み
+ * 操作直後＝シアンの波紋
+ * 選択結果＝淡いミント＋濃い枠線＋チェック
+ * 波紋はクリックに結び付け、キーボード操作にも対応。
+ */
+listen(document,'click',event=>{
+  const button=event.target.closest('button:not(:disabled)');
+  if(!button||reduced.matches)return;
+  const rect=button.getBoundingClientRect();
+  const size=Math.hypot(rect.width,rect.height)*2;
+  const ripple=document.createElement('span');
+  ripple.className='ripple';
+  ripple.setAttribute('aria-hidden','true');
+  const keyboard=event.detail===0;
+  const x=keyboard?rect.width/2:event.clientX-rect.left;
+  const y=keyboard?rect.height/2:event.clientY-rect.top;
+  ripple.style.cssText=`width:${size}px;height:${size}px;left:${x-size/2}px;top:${y-size/2}px`;
+  button.append(ripple);
+  setTimeout(()=>ripple.remove(),700);
+});
+
+document.querySelectorAll('[data-immunity]').forEach(button=>{
+  listen(button,'click',()=>{
+    const together=button.dataset.immunity==='community';
+    document.querySelectorAll('[data-immunity]').forEach(b=>{
+      b.setAttribute('aria-pressed',String(b===button));
+    });
+    const view=document.getElementById('community-view');
+    view.querySelector('.routes').setAttribute('opacity',together?'.2':'.6');
+    view.querySelector('.others').setAttribute('fill',together?'#08796F':'#697F91');
+    document.getElementById('immunity-description').textContent=together
+      ?'✓ 接種が広がると、対象型の感染が伝わりにくくなり、未接種の人にも間接的な保護が及ぶことがあります（集団免疫）。'
+      :'✓ 免疫を準備して、対象型への感染を予防します。';
+  });
+});
+
+const messages={
+  '考えたい':'HPVワクチンの接種を考えている。効果や副反応、費用を一緒に確認してほしい。',
+  '心配':'副反応が心配。起こり得る症状や、困ったときの相談先を一緒に調べたい。',
+  '知りたい':'もう少し知ってから考えたい。医師に聞きたいことを一緒に整理してほしい。',
+  '迷っている':'HPVワクチンのことを知ったけど、まだ迷っている。効果と副反応について、一緒に確認してほしい。'
+};
+let feeling='';
+const note=document.getElementById('family-note');
+const safety=document.getElementById('safety-read');
+
+document.querySelectorAll('[data-feeling]').forEach(button=>{
+  listen(button,'click',()=>{
+    feeling=button.dataset.feeling;
+    document.querySelectorAll('[data-feeling]').forEach(b=>{
+      b.setAttribute('aria-pressed',String(b===button));
+    });
+    document.getElementById('feeling-message').textContent='「'+messages[feeling]+'」';
+  });
+});
+
+function openNote(){
+  if(!note.value){
+    note.value=(messages[feeling]||'HPVワクチンについて、一緒に話してみたい。')+
+      '\n\n確認したいこと：\n・期待できる効果と限界\n・副反応と相談先\n・費用、回数と予定';
+  }
+  verticalGo(11);
+  states[11].go(1);
+  setTimeout(()=>{
+    if(!destroyed)note.focus({preventScroll:true});
+  },reduced.matches?0:450);
+}
+
+/*
+ * 関心項目へ直接移動した人にも安全性の主画面を案内。
+ * 確認チェックは理解や同意の証明として扱わない。
+ * 接種や相談を妨げず「メモを作る」前の見落としを減らす。
+ */
+listen(document.getElementById('make-note'),'click',()=>{
+  if(!safety.checked){
+    verticalGo(9);
+    states[9].go(0);
+    say('メモを作る前に、副反応と緊急時の対応も確認しましょう。確認後は12へ戻れます。',6500);
+    return;
+  }
+  openNote();
+});
+
+async function copy(text,message='コピーしました。'){
+  try{
+    if(!navigator.clipboard||!isSecureContext)throw new Error('Clipboard unavailable');
+    await navigator.clipboard.writeText(text);
+    say(message);
+  }catch(error){
+    const temporary=document.createElement('textarea');
+    temporary.value=text;
+    temporary.style.cssText='position:fixed;left:0;top:0;opacity:0';
+    document.body.append(temporary);
+    temporary.focus();temporary.select();
+    let ok=false;
+    try{ok=document.execCommand('copy');}catch(_){}
+    temporary.remove();
+    say(ok?message:'自動コピーできません。表示されているURLまたはメモを選択してコピーしてください。');
+    if(!ok&&text===note.value){note.focus();note.select();}
+  }
+}
+
+listen(document.getElementById('copy-link'),'click',()=>copy(CONFIG.url,'✓ リンクをコピーしました。'));
+listen(document.getElementById('copy-note'),'click',()=>copy(note.value,'✓ メモをコピーしました。送る相手を確認してください。'));
+listen(document.getElementById('share'),'click',async()=>{
+  if(!navigator.share){
+    await copy(CONFIG.url,'✓ リンクをコピーしました。メッセージに貼り付けて送れます。');
+    return;
+  }
+  try{
+    await navigator.share({
+      title:'あなたの将来のために。HPVガイド',
+      text:'一緒に見て、話してみよう。',url:CONFIG.url
+    });
+  }catch(error){
+    if(error.name!=='AbortError')await copy(CONFIG.url);
+  }
+});
+
+/*
+ * QRは端末内で生成。外部QR生成APIにURLやメモを送らない。
+ * 固定版ライブラリをCDNから取得するため初回は通信が必要。
+ * 失敗時もリンク共有は使用可能。
+ */
+let qrLoading=false,qrTimeout,qrScript;
+function qrFailed(){
+  if(destroyed)return;
+  qrLoading=false;
+  document.getElementById('qr').innerHTML=
+    '<p>QRを読み込めませんでした。<br>共有ボタンも使えます。<br><button class="action" id="qr-retry">再試行</button></p>';
+  listen(document.getElementById('qr-retry'),'click',loadQR);
+}
+function renderQR(){
+  if(destroyed)return;
+  try{
+    const qr=window.qrcode(0,'M');
+    qr.addData(CONFIG.url);qr.make();
+    const count=qr.getModuleCount(),quiet=4,size=count+quiet*2;
+    let path='';
+    for(let y=0;y<count;y++){
+      for(let x=0;x<count;x++){
+        if(qr.isDark(y,x))path+=`M${x+quiet} ${y+quiet}h1v1h-1z`;
       }
     }
+    document.getElementById('qr').innerHTML=
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}"
+        role="img" aria-label="このHPVガイドを開くQRコード" shape-rendering="crispEdges">
+        <rect width="${size}" height="${size}" fill="white"/>
+        <path d="${path}" fill="black"/>
+      </svg>`;
+    qrLoading=false;
+  }catch(error){qrFailed();}
+}
+function loadQR(){
+  if(qrLoading||destroyed)return;
+  if(typeof window.qrcode==='function'){renderQR();return;}
+  qrLoading=true;
+  document.getElementById('qr').innerHTML='<p>QRコードを準備しています…</p>';
+  qrScript=document.createElement('script');
+  qrScript.src='https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js?v='+encodeURIComponent(CONFIG.build);
+  qrScript.async=true;
+  qrScript.crossOrigin='anonymous';
+  qrTimeout=setTimeout(()=>{
+    qrScript.onload=null;qrScript.onerror=null;
+    qrScript.remove();qrFailed();
+  },15000);
+  qrScript.onload=()=>{clearTimeout(qrTimeout);renderQR();};
+  qrScript.onerror=()=>{clearTimeout(qrTimeout);qrScript.remove();qrFailed();};
+  document.head.append(qrScript);
+}
+loadQR();
 
-    window.addEventListener('DOMContentLoaded', () => {
-      // 現在のURLに応じたQRコードの動的反映
-      const currentUrl = window.location.href;
-      if (currentUrl && currentUrl.startsWith('http')) {
-        const qrImg = document.getElementById('qr-image');
-        qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=' + encodeURIComponent(currentUrl);
+/*
+ * 更新時だけ表示位置・メモを同一タブ内に一時退避。
+ * 復元後すぐ削除。通常の閲覧中にはメモを保存しない。
+ */
+const STATE_KEY='hpv-lp-update-state';
+function saveView(){
+  const value={
+    active,horizontal:states.map(s=>s.current),
+    inner:chapters.map(c=>[...c.querySelectorAll('.slide-inner')].map(x=>x.scrollTop)),
+    note:note.value,feeling,safety:safety.checked,time:Date.now()
+  };
+  try{sessionStorage.setItem(STATE_KEY,JSON.stringify(value));return true;}
+  catch(error){return false;}
+}
+try{
+  const raw=sessionStorage.getItem(STATE_KEY);
+  sessionStorage.removeItem(STATE_KEY);
+  if(raw){
+    const saved=JSON.parse(raw);
+    if(Date.now()-saved.time<300000){
+      if(typeof saved.note==='string')note.value=saved.note;
+      safety.checked=Boolean(saved.safety);
+      const button=[...document.querySelectorAll('[data-feeling]')]
+        .find(b=>b.dataset.feeling===saved.feeling);
+      if(button)button.click();
+      requestAnimationFrame(()=>{
+        if(destroyed)return;
+        verticalGo(Math.max(0,Math.min(11,Number(saved.active)||0)),true);
+        states.forEach((s,i)=>s.go(saved.horizontal?.[i]||0,true));
+        requestAnimationFrame(()=>{
+          if(destroyed)return;
+          chapters.forEach((c,i)=>{
+            [...c.querySelectorAll('.slide-inner')].forEach((el,j)=>{
+              el.scrollTop=saved.inner?.[i]?.[j]||0;
+            });
+          });
+        });
+      });
+    }
+  }
+}catch(error){}
+
+/*
+ * 最新版確認・適用：
+ * 対象ファイルの最新コミットをGitHub APIで確認し、
+ * SHA固定のraw HTMLを取得して検証後に適用する。
+ * API/rawには時刻パラメータ＋cache:'no-store'を使用。
+ * CDN資産にはビルド番号を付けてキャッシュを区別。
+ *
+ * GitHub Pagesの公開先でのみ有効。
+ * ローカルV5をGitHub上の旧版に戻すことはしない。
+ * アプリ名と版の検証は誤適用防止用であり、
+ * リポジトリ所有者のコードを信頼して実行する設計。
+ */
+const publicURL=new URL(CONFIG.url);
+const updateEnabled=
+  location.protocol==='https:'&&
+  location.hostname===publicURL.hostname&&
+  location.pathname.startsWith(publicURL.pathname);
+let checking=false,lastCheck=0,pendingHTML='',pendingSHA='';
+let updateInterval,startTimer;
+const APPLIED_KEY='hpv-lp-applied-sha';
+const fetchControllers=new Set();
+
+function updateLabel(text){
+  const label=document.getElementById('update-state');
+  if(label)label.textContent='V5｜'+text;
+}
+function rememberedSHA(){
+  try{return sessionStorage.getItem(APPLIED_KEY)||'';}
+  catch(error){return '';}
+}
+async function getFresh(url,type='json'){
+  const target=new URL(url);
+  target.searchParams.set('_cb',Date.now().toString());
+  const controller=new AbortController();
+  fetchControllers.add(controller);
+  const timer=setTimeout(()=>controller.abort(),12000);
+  try{
+    const response=await fetch(target.href,{
+      cache:'no-store',credentials:'omit',signal:controller.signal,
+      headers:type==='json'?{Accept:'application/vnd.github+json'}:{}
+    });
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    return type==='json'?await response.json():await response.text();
+  }finally{
+    clearTimeout(timer);fetchControllers.delete(controller);
+  }
+}
+
+function validateHTML(html){
+  const doc=new DOMParser().parseFromString(html,'text/html');
+     const marker=doc.querySelector('meta[name="hpv-lp-app"]');
+    const version=Number(
+      doc.querySelector('meta[name="hpv-lp-version"]')?.content
+    );
+
+    if(
+      marker?.content!=='hpv-vaccineguide' ||
+      !Number.isFinite(version) ||
+      version<CONFIG.version ||
+      !doc.querySelector('#lp-style') ||
+      !doc.querySelector('#lp-code') ||
+      !doc.querySelector('#app')
+    ){
+      throw new Error('更新ファイルが旧版または非対応です');
+    }
+
+    return doc;
+  }
+
+  function offerUpdate(){
+    if(destroyed)return;
+
+    const toast=document.getElementById('toast');
+    clearTimeout(toastTimer);
+    toast.textContent='最新版があります。メモを引き継いで更新できます。';
+    toast.hidden=false;
+
+    const applyButton=document.createElement('button');
+    applyButton.className='action primary';
+    applyButton.textContent='メモを引き継いで更新';
+    listen(applyButton,'click',()=>{
+      applyLatest(pendingHTML,pendingSHA);
+    });
+
+    const laterButton=document.createElement('button');
+    laterButton.className='action';
+    laterButton.textContent='今は更新しない';
+    listen(laterButton,'click',()=>{
+      toast.hidden=true;
+    });
+
+    toast.append(document.createElement('br'),applyButton,laterButton);
+    status.textContent='最新版があります。更新するか選べます。';
+  }
+
+  function cleanup(){
+    destroyed=true;
+
+    lifecycle.abort();
+    observer.disconnect();
+
+    clearInterval(updateInterval);
+    clearTimeout(startTimer);
+    clearTimeout(resizeTimer);
+    clearTimeout(toastTimer);
+    clearTimeout(qrTimeout);
+
+    if(qrScript){
+      qrScript.onload=null;
+      qrScript.onerror=null;
+    }
+
+    fetchControllers.forEach(controller=>controller.abort());
+    fetchControllers.clear();
+  }
+
+  function applyLatest(html,sha){
+    if(destroyed || !html || !/^[0-9a-f]{40}$/i.test(sha))return;
+
+    let doc;
+    try{
+      doc=validateHTML(html);
+    }catch(error){
+      say('更新ファイルを検証できませんでした。現在のV5を維持します。');
+      return;
+    }
+
+    /*
+     * メモの一時退避に失敗した場合は更新を止め、
+     * コピーによる保護を案内する。
+     */
+    const saved=saveView();
+    if(!saved && note.value.trim()){
+      say('メモを引き継げません。先にメモをコピーしてから更新してください。');
+      return;
+    }
+
+    try{
+      sessionStorage.setItem(APPLIED_KEY,sha);
+    }catch(error){}
+
+    /*
+     * 最新HTMLのlp-codeは、このV5と同様に
+     * 関数スコープで実行される構成を維持してください。
+     * URLを変えず、文書全体を最新版へ置き換えます。
+     */
+    const latest='<!DOCTYPE html>\n'+doc.documentElement.outerHTML;
+
+    cleanup();
+    document.open();
+    document.write(latest);
+    document.close();
+  }
+
+  async function checkLatest(force=false){
+    if(
+      !updateEnabled ||
+      checking ||
+      destroyed ||
+      document.visibilityState==='hidden'
+    )return;
+
+    const now=Date.now();
+    if(!force && now-lastCheck<60000)return;
+
+    checking=true;
+    lastCheck=now;
+    updateLabel('GitHubの最新版を確認中…');
+
+    try{
+      const repository=
+        'https://api.github.com/repos/'+
+        encodeURIComponent(CONFIG.owner)+'/'+
+        encodeURIComponent(CONFIG.repo);
+
+      const commitsURL=new URL(repository+'/commits');
+      commitsURL.searchParams.set('sha',CONFIG.branch);
+      commitsURL.searchParams.set('path',CONFIG.path);
+      commitsURL.searchParams.set('per_page','1');
+
+      const commits=await getFresh(commitsURL.href,'json');
+      if(destroyed)return;
+
+      if(!Array.isArray(commits) || !commits.length){
+        throw new Error('対象ファイルのコミットがありません');
+      }
+
+      const sha=commits[0].sha;
+      if(typeof sha!=='string' || !/^[0-9a-f]{40}$/i.test(sha)){
+        throw new Error('コミットSHAが不正です');
+      }
+
+      if(rememberedSHA()===sha){
+        updateLabel('適用済みコミット '+sha.slice(0,7));
+        return;
+      }
+
+      const filePath=CONFIG.path.split('/')
+        .map(part=>encodeURIComponent(part))
+        .join('/');
+
+      const rawURL=
+        'https://raw.githubusercontent.com/'+
+        encodeURIComponent(CONFIG.owner)+'/'+
+        encodeURIComponent(CONFIG.repo)+'/'+
+        sha+'/'+filePath;
+
+      const html=await getFresh(rawURL,'text');
+      if(destroyed)return;
+
+      let doc;
+      try{
+        doc=validateHTML(html);
+      }catch(error){
+        updateLabel('公開元が旧版または非対応です。現在のV5を維持します。');
+        return;
+      }
+
+      if(signature(doc)===initialSignature){
+        pendingHTML='';
+        pendingSHA='';
+        updateLabel('最新内容を確認 '+sha.slice(0,7));
+        return;
+      }
+
+      pendingHTML=html;
+      pendingSHA=sha;
+      updateLabel('最新版あり '+sha.slice(0,7));
+
+      /*
+       * メモ入力中は自動で置き換えず、本人の操作を待つ。
+       * メモが空なら、表示位置と選んだ気持ちを退避して適用。
+       */
+      if(note.value.trim()){
+        offerUpdate();
+      }else{
+        applyLatest(pendingHTML,pendingSHA);
+      }
+    }catch(error){
+      if(!destroyed){
+        updateLabel('更新確認できませんでした。現在の表示を維持します。');
+        console.warn('HPV LP update check:',error);
+      }
+    }finally{
+      checking=false;
+    }
+  }
+
+  /*
+   * 起動時・5分ごと・タブ復帰時・通信復帰時に確認。
+   * 通信やAPI制限で失敗しても、現在のガイドは閲覧できます。
+   * 医療情報の自動収集ではなく、公開元HTMLの更新確認です。
+   */
+  if(updateEnabled){
+    updateLabel('公開環境：最新コミットを確認します。');
+
+    startTimer=setTimeout(()=>{
+      if(!destroyed)checkLatest(true);
+    },1500);
+
+    updateInterval=setInterval(()=>{
+      if(!destroyed)checkLatest();
+    },5*60*1000);
+
+    listen(document,'visibilitychange',()=>{
+      if(document.visibilityState==='visible'){
+        checkLatest();
       }
     });
 
-    // URLコピー機能
-    function copyCurrentUrl(btn) {
-      const url = window.location.href;
-      navigator.clipboard.writeText(url).then(() => {
-        const textEl = document.getElementById('copy-text');
-        const iconEl = document.getElementById('copy-icon');
-        textEl.textContent = 'リンクをコピーしました！';
-        iconEl.textContent = '✅';
-        btn.classList.remove('from-sky-600', 'to-teal-600');
-        btn.classList.add('from-emerald-600', 'to-teal-600');
-        setTimeout(() => {
-          textEl.textContent = 'このページのリンクをコピーする';
-          iconEl.textContent = '🔗';
-          btn.classList.remove('from-emerald-600', 'to-teal-600');
-          btn.classList.add('from-sky-600', 'to-teal-600');
-        }, 2000);
-      }).catch(() => {
-        alert('URLのコピーに失敗しました。ブラウザの共有機能をご利用ください。');
-      });
-    }
-  </script>
+    listen(window,'online',()=>{
+      checkLatest(true);
+    });
+  }else{
+    updateLabel('プレビュー／ローカル：自動更新は停止しています。');
+  }
 
-</body>
-</html>
+  })();
+  </script>
+  </body>
+  </html>
